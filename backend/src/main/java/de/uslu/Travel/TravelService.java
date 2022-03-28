@@ -15,8 +15,7 @@ public class TravelService {
         return travelRepo.findAllByCity(travel);
     }
 
-    public Travel createTravel(Travel travel, String city) {
-         travel.setCity(city);
+    public Travel createTravel(Travel travel) {
          return travelRepo.save(travel);
     }
 }

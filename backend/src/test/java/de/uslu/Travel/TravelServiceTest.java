@@ -32,16 +32,12 @@ class TravelServiceTest {
         travel.setCity("Hamburg");
         travel.setNotes("kalt");
 
-        Travel travelSaved = new Travel();
-        travelSaved.setCity("Hamburg");
-        travelSaved.setNotes("kalt");
-
         TravelRepo mockRepo = Mockito.mock(TravelRepo.class);
-        Mockito.when(mockRepo.save(travel)).thenReturn(travelSaved);
+        Mockito.when(mockRepo.save(travel)).thenReturn(travel);
 
         TravelService travelService = new TravelService(mockRepo);
-        Travel actual = travelService.createTravel(travel, "Hamburg");
-        Assertions.assertThat(actual).isSameAs(travelSaved);
+        Travel actual = travelService.createTravel(travel);
+        Assertions.assertThat(actual).isSameAs(travel);
     }
 
 }

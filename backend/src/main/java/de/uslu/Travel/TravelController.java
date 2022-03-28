@@ -7,7 +7,7 @@ import java.security.Principal;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/travel")
+@RequestMapping("/api/travel")
 @RequiredArgsConstructor
 @CrossOrigin
 public class TravelController {
@@ -20,8 +20,8 @@ public class TravelController {
     }
 
     @PostMapping
-    public Collection<Travel> createTravel(@RequestBody Travel travel, Principal principal) {
-        travelService.createTravel(travel, principal.getName());
-        return travelService.listTravels(principal.getName());
+    public Collection<Travel> createTravel(@RequestBody Travel travel) {
+        travelService.createTravel(travel);
+        return travelService.listTravels(travel.getCity());
     }
 }

@@ -15,8 +15,8 @@ public class TravelController {
     private final TravelService travelService;
 
     @GetMapping
-    public Collection<Travel> listOfTravel(String travel) {
-        return travelService.listTravels(travel);
+    public Collection<Travel> listOfTravel(String city) {
+        return travelService.listTravels(city);
     }
 
     @PostMapping

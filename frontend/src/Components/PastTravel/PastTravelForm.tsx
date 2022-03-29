@@ -19,11 +19,8 @@ export default function PastTravelForm(props: PastTravelFormProps) {
     localStorage.getItem("notes") ?? ""
   );
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const addTravel = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-  }
-
-  const addTravel = () => {
     fetch(`${process.env.REACT_APP_BASE_URL}/api/travel`, {
       method: "POST",
       headers: {
@@ -54,7 +51,7 @@ export default function PastTravelForm(props: PastTravelFormProps) {
   }, [city, startDate, endDate, notes]);
 
   return (
-    <AddForm onSubmit={(event) => handleSubmit(event)}>
+    <AddForm onSubmit={(event) => addTravel(event)}>
       <Label>
         Stadt:{" "}
         <Input
@@ -95,9 +92,7 @@ export default function PastTravelForm(props: PastTravelFormProps) {
         />
       </Label>
 
-      <Button type="submit" onClick={addTravel}>
-        Reise speichern
-      </Button>
+      <Button type="submit">Reise speichern</Button>
     </AddForm>
   );
 }

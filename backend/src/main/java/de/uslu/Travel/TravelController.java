@@ -15,8 +15,8 @@ public class TravelController {
     private final TravelService travelService;
 
     @GetMapping
-    public Collection<Travel> listOfTravel(Principal principal) {
-        return travelService.listTravels(principal.getName());
+    public Collection<Travel> listOfTravel(String travel) {
+        return travelService.listTravels(travel);
     }
 
     @PostMapping
@@ -24,4 +24,10 @@ public class TravelController {
         travelService.createTravel(travel);
         return travelService.listTravels(travel.getCity());
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable String id) {
+        travelService.deleteTravelItem(id);
+    }
+
 }

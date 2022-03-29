@@ -1,26 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import AppTitle from "./Components/AppTitle/AppTitle";
+import PastTravelList from "./Components/PastTravelList/PastTravelList";
 
-function App() {
-
-    const [greeting, setGreeting] = useState('')
-
-    useEffect(() => {
-        fetch('/api/greeting', {
-            method: 'GET',
-            headers: {
-                'Accept': 'text/plain'
-            }
-        })
-            .then(response => response.text())
-            .then(text => setGreeting(text))
-            .catch(err => setGreeting('Da ist etwas schief gelaufen'));
-    }, []);
-
-    return (
-        <div>
-            {greeting}
-        </div>
-    );
+export default function App() {
+  return (
+    <>
+      <AppTitle>Wo war ich bisjetzt?</AppTitle>
+      <PastTravelList />
+    </>
+  );
 }
-
-export default App;

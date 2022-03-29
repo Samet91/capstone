@@ -18,4 +18,8 @@ public class TravelService {
     public Travel createTravel(Travel travel) {
          return travelRepo.save(travel);
     }
+
+    public void deleteTravelItem(String id) {
+        travelRepo.deleteById(id);
+    }
 }

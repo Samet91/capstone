@@ -11,8 +11,8 @@ public class TravelService {
 
     private final TravelRepo travelRepo;
 
-    public Collection<Travel> listTravels(String travel) {
-        return travelRepo.findAllByCity(travel);
+    public Collection<Travel> listTravels() {
+        return travelRepo.findAll();
     }
 
     public Travel createTravel(Travel travel) {

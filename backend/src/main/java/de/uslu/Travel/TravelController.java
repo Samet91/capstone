@@ -15,14 +15,14 @@ public class TravelController {
     private final TravelService travelService;
 
     @GetMapping
-    public Collection<Travel> listOfTravel(String city) {
-        return travelService.listTravels(city);
+    public Collection<Travel> listOfTravel() {
+        return travelService.listTravels();
     }
 
     @PostMapping
     public Collection<Travel> createTravel(@RequestBody Travel travel) {
         travelService.createTravel(travel);
-        return travelService.listTravels(travel.getCity());
+        return travelService.listTravels();
     }
 
     @DeleteMapping("/{id}")

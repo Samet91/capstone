@@ -17,10 +17,10 @@ class TravelServiceTest {
         Travel travel2 = new Travel();
 
         TravelRepo mockRepo = Mockito.mock(TravelRepo.class);
-        Mockito.when(mockRepo.findAllByCity("hamburg")).thenReturn(List.of(travel1,travel2));
+        Mockito.when(mockRepo.findAll()).thenReturn(List.of(travel1,travel2));
 
         TravelService travelService = new TravelService(mockRepo);
-        Collection<Travel> actual = travelService.listTravels("hamburg");
+        Collection<Travel> actual = travelService.listTravels();
 
         Assertions.assertThat(actual.size()).isEqualTo(2);
     }

@@ -20,7 +20,7 @@ export default function TravelItem(props: TodoItemProps) {
     return (
         <>
             <div>
-                <h3>{props.travel.city}</h3>
+                <h3>Stadt/Land: {props.travel.city}</h3>
                 <p>{props.travel.startDate}</p>
                 <p>{props.travel.endDate}</p>
                 <p>{props.travel.notes}</p>

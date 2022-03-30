@@ -53,7 +53,7 @@ export default function PastTravelForm(props: PastTravelFormProps) {
   return (
     <AddForm onSubmit={(event) => addTravel(event)}>
       <Label>
-        Stadt:{" "}
+        Stadt/Land:{" "}
         <Input
           type="text"
           maxLength={50}
@@ -101,8 +101,9 @@ const AddForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: blue;
+  background-color: var( --color-secondary);
   padding: 20px;
+  border-radius: 20px;
   color: yellow;
   font-size: 1.5rem;
 `;

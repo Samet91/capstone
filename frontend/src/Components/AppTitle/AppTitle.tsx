@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react';
-import styled from 'styled-components';
+import type { ReactNode } from "react";
+import styled from "styled-components";
 
 type AppTitleProps = {
   children: ReactNode;
@@ -12,9 +12,8 @@ export default function AppTitle({ children }: AppTitleProps) {
 const Apptitle = styled.h1`
   text-align: center;
   justify-self: center;
-  width: 100%;
   margin: 0;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: normal;
   margin-bottom: 0.5rem;
   padding-top: 4px;

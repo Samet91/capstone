@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import { Travel } from "../../model";
+import Navigation from "../../Navigation/Navigation";
+import AppTitle from "../AppTitle/AppTitle";
 import PastTravelForm from "../PastTravel/PastTravelForm";
 import TravelItem from "../TravelItem/TravelItem";
 
@@ -30,14 +33,33 @@ export default function PastTravelList() {
   }, []);
 
   return (
-    <div>
-      <PastTravelForm onSubmit={setItems} />
-      <div>
+    <Container>
+      <AppTitle>Trage deine Reisen ein!</AppTitle>
+      <Main>
+        <PastTravelForm onSubmit={setItems} />
+
         {items.map((travel) => (
-          <TravelItem key={travel.id} travel={travel} onTodoDeletion={fetchData} />
+          <TravelItem
+            key={travel.id}
+            travel={travel}
+            onTodoDeletion={fetchData}
+          />
         ))}
         {errorMessage}
-      </div>
-    </div>
+      </Main>
+
+      <Navigation />
+    </Container>
   );
 }
+
+const Container = styled.div`
+  display: grid;
+  grid-template-rows:60px auto 60px;
+  height: 100vh;
+  margin: 0 10px;
+`;
+
+const Main = styled.main`
+  overflow-y: auto;
+`;

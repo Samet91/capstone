@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
         --font-middle-blue-green:#83C5BE;
         --font-max-red:#d62828;
         --font-steelblue:#4682b4
+        
         --color-background-primary: #2556FF;
         --color-background-secondary: #FFF;
         --color-background-tertiary: #FBFBFB;

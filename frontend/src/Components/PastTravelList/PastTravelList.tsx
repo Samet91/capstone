@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Travel } from "../../model";
-import Navigation from "../../Navigation/Navigation";
+import Navigation from "../Navigation/Navigation";
 import AppTitle from "../AppTitle/AppTitle";
 import PastTravelForm from "../PastTravel/PastTravelForm";
 import TravelItem from "../TravelItem/TravelItem";

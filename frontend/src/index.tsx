@@ -2,7 +2,8 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
-import AppTitle from "./Components/AppTitle/AppTitle";
+import Login from "./Components/UserForm/Login";
+import Register from "./Components/UserForm/Register";
 import GlobalStyles from "./Globalstyles";
 import reportWebVitals from "./reportWebVitals";
 
@@ -12,8 +13,9 @@ ReactDOM.render(
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<AppTitle children={"ALEX"}/>} />
+          <Route path="/" element={<Login />} />
           <Route path="/home" element={<App />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </Suspense>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Travel } from "../../model";
-import Navigation from "../../Navigation/Navigation";
+import Navigation from "../Navigation/Navigation";
 import AppTitle from "../AppTitle/AppTitle";
-import PastTravelForm from "../PastTravel/PastTravelForm";
+import PastTravelForm from "../Travel/TravelForm";
 import TravelItem from "../TravelItem/TravelItem";
 
 export default function PastTravelList() {
@@ -13,7 +13,11 @@ export default function PastTravelList() {
   const fetchData = (
     url: string = `${process.env.REACT_APP_BASE_URL}/api/travel`
   ) => {
-    fetch(url)
+    fetch(url, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+    })
       .then((response) => {
         if (response.status === 200) {
           return response.json();
@@ -55,7 +59,7 @@ export default function PastTravelList() {
 
 const Container = styled.div`
   display: grid;
-  grid-template-rows:60px auto 60px;
+  grid-template-rows: 60px auto 60px;
   height: 100vh;
   margin: 0 10px;
 `;

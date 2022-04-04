@@ -1,10 +1,9 @@
-import PastTravelList from "./Components/PastTravelList/PastTravelList";
+import TravelList from "./Components/TravelList/TravelList";
 
 export default function App() {
   return (
     <>
-      
-      <PastTravelList />
+      <TravelList />
     </>
   );
 }

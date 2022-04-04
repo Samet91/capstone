@@ -17,10 +17,10 @@ class TravelServiceTest {
         Travel travel2 = new Travel();
 
         TravelRepo mockRepo = Mockito.mock(TravelRepo.class);
-        Mockito.when(mockRepo.findAll()).thenReturn(List.of(travel1,travel2));
+        Mockito.when(mockRepo.findAllByUsername("user1")).thenReturn(List.of(travel1,travel2));
 
         TravelService travelService = new TravelService(mockRepo);
-        Collection<Travel> actual = travelService.listTravels();
+        Collection<Travel> actual = travelService.listTravels("user1");
 
         Assertions.assertThat(actual.size()).isEqualTo(2);
     }
@@ -36,8 +36,30 @@ class TravelServiceTest {
         Mockito.when(mockRepo.save(travel)).thenReturn(travel);
 
         TravelService travelService = new TravelService(mockRepo);
-        Travel actual = travelService.createTravel(travel);
+        Travel actual = travelService.createTravel(travel, "user1");
         Assertions.assertThat(actual).isSameAs(travel);
+    }
+
+    @Test
+    void shouldDeleteOneTravel() {
+        Travel travel = new Travel();
+        travel.setCity("Hamburg");
+
+        TravelRepo mockedRepo = Mockito.mock(TravelRepo.class);
+        mockedRepo.deleteById(travel.getId());
+        Mockito.verify(mockedRepo).deleteById(travel.getId());
+    }
+
+    @Test
+    void shouldDeleteAllTravels() {
+        Travel travel = new Travel();
+        Travel travel2 = new Travel();
+        travel.setCity("Hamburg");
+        travel2.setCity("Berlin");
+
+        TravelRepo mockedRepo = Mockito.mock(TravelRepo.class);
+        mockedRepo.deleteAll();
+        Mockito.verify(mockedRepo).deleteAll();
     }
 
 }

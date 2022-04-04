@@ -18,5 +18,6 @@ public class Travel {
     private Date startDate;
     private Date endDate;
     private String notes;
+    private String username;
 
 }

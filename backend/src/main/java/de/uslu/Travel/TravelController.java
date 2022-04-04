@@ -9,25 +9,24 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/api/travel")
 @RequiredArgsConstructor
-@CrossOrigin
 public class TravelController {
 
     private final TravelService travelService;
 
     @GetMapping
-    public Collection<Travel> listOfTravel() {
-        return travelService.listTravels();
+    public Collection<Travel> listOfTravel(Principal principal) {
+        return travelService.listTravels(principal.getName());
     }
 
     @PostMapping
-    public Collection<Travel> createTravel(@RequestBody Travel travel) {
-        travelService.createTravel(travel);
-        return travelService.listTravels();
+    public Collection<Travel> createTravel(@RequestBody Travel travel, Principal principal) {
+        travelService.createTravel(travel, principal.getName());
+        return travelService.listTravels(principal.getName());
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
-        travelService.deleteTravelItem(id);
+    public void delete(@PathVariable String id, Principal principal) {
+        travelService.deleteTravelItem(id, principal.getName());
     }
 
 }

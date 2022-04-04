@@ -9,5 +9,7 @@ import java.util.Collection;
 public interface TravelRepo extends MongoRepository<Travel, String> {
     
     Collection<Travel> findAllByCity(String city);
-    
+    Collection<Travel> findAllByUsername(String username);
+    Collection<Travel> deleteByIdAndUsername(String id, String username);
+
 }

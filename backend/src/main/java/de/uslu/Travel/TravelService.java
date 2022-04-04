@@ -11,15 +11,16 @@ public class TravelService {
 
     private final TravelRepo travelRepo;
 
-    public Collection<Travel> listTravels() {
-        return travelRepo.findAll();
+    public Collection<Travel> listTravels(String username) {
+        return travelRepo.findAllByUsername(username);
     }
 
-    public Travel createTravel(Travel travel) {
+    public Travel createTravel(Travel travel, String name) {
+         travel.setUsername(name);
          return travelRepo.save(travel);
     }
 
-    public void deleteTravelItem(String id) {
-        travelRepo.deleteById(id);
+    public void deleteTravelItem(String id, String username) {
+        travelRepo.deleteByIdAndUsername(id, username);
     }
 }

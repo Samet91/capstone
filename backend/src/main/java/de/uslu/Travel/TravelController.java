@@ -30,7 +30,7 @@ public class TravelController {
     }
 
     @GetMapping("/before")
-    public Collection<Travel> listDatesAfterToday(Principal principal) {
-       return travelService.listDatesAfterToday(principal.getName());
+    public Collection<Travel> listTravelAfterToday(Principal principal) {
+       return travelService.listTravelAfterToday(principal.getName());
     }
 }

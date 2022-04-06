@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +25,7 @@ public class TravelService {
         travelRepo.deleteByIdAndUsername(id, username);
     }
 
-    public Collection<Travel> listDatesAfterToday(String username) {
+    public Collection<Travel> listTravelAfterToday(String username) {
         LocalDateTime now = LocalDateTime.now();
         return travelRepo.findAllByStartDateBefore(now);
     }

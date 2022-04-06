@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
+import FutureTravelList from "./Components/FutureTravelList/FutureTravelList";
 import Login from "./Components/UserForm/Login";
 import Register from "./Components/UserForm/Register";
 import GlobalStyles from "./Globalstyles";
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<App />} />
+          <Route path="/future" element={<FutureTravelList />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>

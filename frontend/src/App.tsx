@@ -1,4 +1,4 @@
-import TravelList from "./Components/TravelList/TravelList";
+import TravelList from "./Components/PastTravelList/PastTravelList";
 
 export default function App() {
   return (

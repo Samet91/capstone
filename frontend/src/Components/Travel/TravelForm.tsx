@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { Travel } from "../../model";
 import Button from "../Button/Button";
 
-interface PastTravelFormProps {
+interface TravelFormProps {
   onSubmit: (travel: Array<Travel>) => void;
 }
 
-export default function PastTravelForm(props: PastTravelFormProps) {
+export default function TravelForm(props: TravelFormProps) {
   const [city, setCity] = useState<string>(localStorage.getItem("city") ?? "");
   const [startDate, setStartDate] = useState<string>(
     localStorage.getItem("startDate") ?? ""
@@ -25,6 +25,7 @@ export default function PastTravelForm(props: PastTravelFormProps) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
       body: JSON.stringify({
         city: city,
@@ -101,7 +102,7 @@ const AddForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: var( --color-secondary);
+  background-color: var(--color-secondary);
   padding: 20px;
   border-radius: 20px;
   color: yellow;

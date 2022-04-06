@@ -29,4 +29,8 @@ public class TravelController {
         travelService.deleteTravelItem(id, principal.getName());
     }
 
+    @GetMapping("/before")
+    public Collection<Travel> listTravelAfterToday(Principal principal) {
+       return travelService.listTravelAfterToday(principal.getName());
+    }
 }

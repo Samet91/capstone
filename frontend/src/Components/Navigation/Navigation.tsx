@@ -7,14 +7,14 @@ export default function Navigation() {
   return (
     <>
       <Nav>
-        <Link to={""}>
+        <Link to={"/future"}>
           <FutureTrip />
         </Link>
-        <Link to={""}>
+        <Link to={"/home"}>
           <PastTrip />
         </Link>
 
-        <Link to={""}>
+        <Link to={"/"}>
           <LogoutIcon />
         </Link>
       </Nav>

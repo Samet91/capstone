@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { Travel } from "../../model";
 import Navigation from "../Navigation/Navigation";
 import AppTitle from "../AppTitle/AppTitle";
-import PastTravelForm from "../Travel/TravelForm";
 import TravelItem from "../TravelItem/TravelItem";
+import TravelForm from "../Travel/TravelForm";
 
-export default function PastTravelList() {
+export default function FutureTravelList() {
   const [items, setItems] = useState([] as Array<Travel>);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -38,9 +38,9 @@ export default function PastTravelList() {
 
   return (
     <Container>
-      <AppTitle>Trage deine Reisen ein!</AppTitle>
+      <AppTitle>Reisen! Wohin?</AppTitle>
       <Main>
-        <PastTravelForm onSubmit={setItems} />
+        <TravelForm onSubmit={setItems} />
 
         {items.map((travel) => (
           <TravelItem

@@ -27,6 +27,11 @@ public class TravelService {
 
     public Collection<Travel> listTravelAfterToday(String username) {
         LocalDateTime now = LocalDateTime.now();
-        return travelRepo.findAllByStartDateBefore(now);
+        return travelRepo.findAllByStartDateAfterAndUsername(now, username);
+    }
+
+    public Collection<Travel> listTravelBeforeToday(String username) {
+        LocalDateTime after = LocalDateTime.now();
+        return travelRepo.findAllByStartDateBeforeAndUsername(after, username);
     }
 }

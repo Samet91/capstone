@@ -12,6 +12,7 @@ public interface TravelRepo extends MongoRepository<Travel, String> {
 
     Collection<Travel> findAllByUsername(String username);
     Collection<Travel> deleteByIdAndUsername(String id, String username);
-    List<Travel> findAllByStartDateBefore(LocalDateTime now);
+    List<Travel> findAllByStartDateBeforeAndUsername(LocalDateTime now, String username);
+    List<Travel> findAllByStartDateAfterAndUsername(LocalDateTime after, String username);
 
 }

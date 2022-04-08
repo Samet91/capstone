@@ -21,8 +21,8 @@ export default function TravelItem(props: TodoItemProps) {
     <>
       <div>
         <h3>Stadt/Land: {props.travel.city}</h3>
-        <p>{props.travel.startDate}</p>
-        <p>{props.travel.endDate}</p>
+        <p>{new Date(props.travel.startDate).toLocaleDateString("de-DE")}</p>
+        <p>{new Date(props.travel.endDate).toLocaleDateString("de-DE")}</p>
         <p>{props.travel.notes}</p>
         <button onClick={deleteTravel}>X</button>
       </div>

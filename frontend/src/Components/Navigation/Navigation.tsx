@@ -1,9 +1,16 @@
 import { HiLogout } from "react-icons/hi";
 import { GiAirplaneArrival, GiAirplaneDeparture } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Navigation() {
+  const navigate = useNavigate();
+
+  const deleteToken = () => {
+    localStorage.removeItem("jwt");
+    navigate("/");
+  };
+
   return (
     <>
       <Nav>
@@ -14,9 +21,7 @@ export default function Navigation() {
           <PastTrip />
         </Link>
 
-        <Link to={"/"}>
-          <LogoutIcon />
-        </Link>
+        <LogoutIcon onClick={deleteToken} />
       </Nav>
     </>
   );

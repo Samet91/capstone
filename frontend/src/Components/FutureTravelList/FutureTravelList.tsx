@@ -11,7 +11,7 @@ export default function FutureTravelList() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const fetchData = (
-    url: string = `${process.env.REACT_APP_BASE_URL}/api/travel`
+    url: string = `${process.env.REACT_APP_BASE_URL}/api/travel/after`
   ) => {
     fetch(url, {
       headers: {
